@@ -42,7 +42,7 @@ reserves the right to change the license of future releases. Wondering what you 
 AdminLazy 1.x can be easily upgraded to 2.x using [this guide](http://lazycode.vip/themes/AdminLazy/documentation/index.html#upgrade), but if you intend to keep using AdminLazy 1.x, you can download the latest release from the [releases](https://github.com/almasaeed2010/AdminLazy/releases) section above.
 
 ### Change log
-**For the most recent change log, visit the [releases page](https://github.com/almasaeed2010/AdminLazy/releases) or the [changelog file](https://github.com/almasaeed2010/AdminLazy/blob/master/changelog.md).** We will add detailed release notes to each new release.
+**For the most recent change log, visit the [releases page](https://github.com/168367406/AdminLazy/releases) or the [changelog file](https://github.com/almasaeed2010/AdminLazy/blob/master/changelog.md).** We will add detailed release notes to each new release.
 
 ### Image Credits
 - [Pixeden](http://www.pixeden.com/psd-web-elements/flat-responsive-showcase-psd)
