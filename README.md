@@ -8,7 +8,7 @@ Introduction
 
 **AdminLazy** -- is a fully responsive admin template. Based on **[Bootstrap 3](https://github.com/twbs/bootstrap)** framework. Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops. Check out the live preview now and see for yourself.
 
-**Download & Preview on [AdminLazy.IO](http://lazycode.vip)**
+**Download & Preview on [lazycode.vip](http://lazycode.vip)**
 
 ### Looking for Premium Templates?
 **AdminLazy.IO just opened a new premium templates website. Hand picked to ensure the best quality and the most affordable prices. Visit https://themequarry.com for more information.**
@@ -35,7 +35,7 @@ Contribution are always **welcome and recommended**! Here is how:
 - Finally, contributed code must work in all supported browsers (see above for browser support).
 
 ### License
-AdminLazy is an open source project by [AdminLazy.IO](http://lazycode.vip) that is licensed under [MIT](http://opensource.org/licenses/MIT). AdminLazy.IO
+AdminLazy is an open source project by [lazycode.vip](http://lazycode.vip) that is licensed under [MIT](http://opensource.org/licenses/MIT). AdminLazy.IO
 reserves the right to change the license of future releases. Wondering what you can or can't do? View the [license guide](http://lazycode.vip/docs/license).
 
 ### Legacy Releases
