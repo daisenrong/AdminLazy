@@ -17,7 +17,7 @@ Introduction
 Visit the [online documentation](http://lazycode.vip/docs) for the most
 updated guide.
 
-!["AdminLazy Presentation"](http://lazycode.vip/AdminLazy2.png "AdminLazy Presentation")
+!["AdminLazy Presentation"](/static/img/avatar.png "AdminLazy Presentation")
 
 ### Contribution
 Contribution are always **welcome and recommended**! Here is how:
