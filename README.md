@@ -6,7 +6,7 @@ Introduction
 [![Packagist](https://img.shields.io/packagist/v/almasaeed2010/AdminLazy.svg)](https://packagist.org/packages/almasaeed2010/AdminLazy)
 [![CDNJS](https://img.shields.io/cdnjs/v/admin-lte.svg)](https://cdnjs.com/libraries/admin-lte)
 
-**AdminLazy** -- is a fully responsive admin template. Based on **[Bootstrap 3](https://github.com/twbs/bootstrap)** framework. Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops. Check out the live preview now and see for yourself.
+**AdminLazy** -- is a fully responsive admin template. Based on **[Bootstrap 3](https://github.com/twbs/bootstrap)* framework. Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops. Check out the live preview now and see for yourself.
 
 **Download & Preview on [lazycode.vip](http://lazycode.vip)**
 
