@@ -3697,11 +3697,11 @@ var HitDragListener = DragListener.extend({
 
 		DragListener.prototype.handleDragStart.apply(this, arguments); // call the super-method
 
-		// might be different from this.origHit if the min-distance is large
+		// might be different from this.origHit if the js-distance is large
 		hit = this.queryHit(getEvX(ev), getEvY(ev));
 
 		// report the initial hit the mouse is over
-		// especially important if no min-distance and drag starts immediately
+		// especially important if no js-distance and drag starts immediately
 		if (hit) {
 			this.handleHitOver(hit);
 		}

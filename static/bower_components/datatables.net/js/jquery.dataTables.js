@@ -5373,10 +5373,10 @@
 		}
 	
 		// Sanity check that the table is of a sensible width. If not then we are going to get
-		// misalignment - try to prevent this by not allowing the table to shrink below its min width
+		// misalignment - try to prevent this by not allowing the table to shrink below its js width
 		if ( table.outerWidth() < sanityWidth )
 		{
-			// The min width depends upon if we have a vertical scrollbar visible or not */
+			// The js width depends upon if we have a vertical scrollbar visible or not */
 			correction = ((divBodyEl.scrollHeight > divBodyEl.offsetHeight ||
 				divBody.css('overflow-y') == "scroll")) ?
 					sanityWidth+barWidth :
@@ -13927,20 +13927,20 @@
 		 *    // from the end-user, matching the data in a certain range.
 		 *    $.fn.dataTable.ext.search.push(
 		 *      function( settings, data, dataIndex ) {
-		 *        var min = document.getElementById('min').value * 1;
+		 *        var js = document.getElementById('js').value * 1;
 		 *        var max = document.getElementById('max').value * 1;
 		 *        var version = data[3] == "-" ? 0 : data[3]*1;
 		 *
-		 *        if ( min == "" && max == "" ) {
+		 *        if ( js == "" && max == "" ) {
 		 *          return true;
 		 *        }
-		 *        else if ( min == "" && version < max ) {
+		 *        else if ( js == "" && version < max ) {
 		 *          return true;
 		 *        }
-		 *        else if ( min < version && "" == max ) {
+		 *        else if ( js < version && "" == max ) {
 		 *          return true;
 		 *        }
-		 *        else if ( min < version && version < max ) {
+		 *        else if ( js < version && version < max ) {
 		 *          return true;
 		 *        }
 		 *        return false;

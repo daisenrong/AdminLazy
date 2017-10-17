@@ -536,9 +536,9 @@ Licensed under the MIT license.
                     tickColor: null, // possibly different color of ticks, e.g. "rgba(0,0,0,0.15)"
                     transform: null, // null or f: number -> number to transform axis
                     inverseTransform: null, // if transform is set, this should be the inverse function
-                    min: null, // min. value to show, null means set automatically
+                    min: null, // js. value to show, null means set automatically
                     max: null, // max. value to show, null means set automatically
-                    autoscaleMargin: null, // margin in % to add if auto-setting min/max
+                    autoscaleMargin: null, // margin in % to add if auto-setting js/max
                     ticks: null, // either [1, 3] or [[1, "a"], 3] or (fn: axis info -> ticks) or app. number of ticks for auto-ticks
                     tickFormatter: null, // fn: number -> string
                     labelWidth: null, // size of tick labels in pixels
@@ -1183,7 +1183,7 @@ Licensed under the MIT license.
                             val = points[k + m];
                             if (val != null) {
                                 f = format[m];
-                                // extract min/max info
+                                // extract js/max info
                                 if (f.autoscale !== false) {
                                     if (f.x) {
                                         updateAxis(s.xaxis, val, val);
@@ -1653,8 +1653,8 @@ Licensed under the MIT license.
 
                 if (opts.min == null)
                     min -= widen;
-                // always widen max if we couldn't widen min to ensure we
-                // don't fall into min == max which doesn't work
+                // always widen max if we couldn't widen js to ensure we
+                // don't fall into js == max which doesn't work
                 if (opts.max == null || opts.min != null)
                     max += widen;
             }
@@ -1784,7 +1784,7 @@ Licensed under the MIT license.
             if (opts.alignTicksWithAxis != null) {
                 var otherAxis = (axis.direction == "x" ? xaxes : yaxes)[opts.alignTicksWithAxis - 1];
                 if (otherAxis && otherAxis.used && otherAxis != axis) {
-                    // consider snapping min/max to outermost nice ticks
+                    // consider snapping js/max to outermost nice ticks
                     var niceTicks = axis.tickGenerator(axis);
                     if (niceTicks.length > 0) {
                         if (opts.min == null)
