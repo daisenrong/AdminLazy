@@ -22,19 +22,24 @@
         },
         refreshTab: function () {
             var currentId = $('.page-tabs-content').find('.active').attr('data-id');
-            var target = $('.LRADMS_iframe[data-id="' + currentId + '"]');
+            var target = $('.LAZY-main-iframe[data-id="' + currentId + '"]');
             var url = target.attr('src');
-            //$.loading(true);
-            target.attr('src', url).load(function () {
-                //$.loading(false);
-            });
+            // console.log("currentId:"+currentId);
+            // console.log("target:"+target);
+            // console.log("url:"+url);
+            // $.loading(true);
+            // target.attr('src', url).load(function () {
+            //     // $.loading(false);
+            // });
+            target.attr('src', url);
+
         },
         activeTab: function () {
             var currentId = $(this).data('id');
             if (!$(this).hasClass('active')) {
-                $('.mainContent .LRADMS_iframe').each(function () {
+                $('.mainContent .LAZY-main-iframe').each(function () {
                     if ($(this).data('id') == currentId) {
-                        $(this).show().siblings('.LRADMS_iframe').hide();
+                        $(this).show().siblings('.LAZY-main-iframe').hide();
                         return false;
                     }
                 });
@@ -205,7 +210,8 @@
             }, "fast");
         },
         scrollToTab: function (element) {
-            var marginLeftVal = $.learuntab.calSumWidth($(element).prevAll()), marginRightVal = $.learuntab.calSumWidth($(element).nextAll());
+            var marginLeftVal = $.learuntab.calSumWidth($(element).prevAll()),
+                marginRightVal = $.learuntab.calSumWidth($(element).nextAll());
             var tabOuterWidth = $.learuntab.calSumWidth($(".content-tabs").children().not(".menuTabs"));
             var visibleWidth = $(".content-tabs").outerWidth(true) - tabOuterWidth;
             var scrollVal = 0;
@@ -298,7 +304,76 @@
             return reval;
         },
         loadMenu: function () {
-            var data = [{ "F_ModuleId": "1", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "系统管理", "F_Icon": "fa fa-desktop", "F_UrlAddress": null, "F_Target": "expand", "F_IsMenu": 0, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2015-11-17 11:22:46", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" }, { "F_ModuleId": "8", "F_ParentId": "2", "F_EnCode": "OrganizeManage", "F_FullName": "机构管理", "F_Icon": "fa fa-sitemap", "F_UrlAddress": "/BaseManage/Organize/Index", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": null, "F_CreateDate": null, "F_CreateUserId": null, "F_CreateUserName": null, "F_ModifyDate": "2016-04-29 11:55:28", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" }, { "F_ModuleId": "7ae94059-9aa5-48eb-8330-4e2a6565b193", "F_ParentId": "1", "F_EnCode": "AreaManage", "F_FullName": "行政区域", "F_Icon": "fa fa-leaf", "F_UrlAddress": "/SystemManage/Area/Index", "F_Target": "iframe", "F_IsMenu": 1, "F_AllowExpand": 1, "F_IsPublic": 0, "F_AllowEdit": null, "F_AllowDelete": null, "F_SortCode": 1, "F_DeleteMark": 0, "F_EnabledMark": 1, "F_Description": "行政区域管理", "F_CreateDate": "2015-11-12 14:38:20", "F_CreateUserId": "System", "F_CreateUserName": "超级管理员", "F_ModifyDate": "2016-04-29 14:05:33", "F_ModifyUserId": "System", "F_ModifyUserName": "超级管理员" }];
+            var data = [{
+                "F_ModuleId": "1",
+                "F_ParentId": "0",
+                "F_EnCode": "SysManage",
+                "F_FullName": "系统管理",
+                "F_Icon": "fa fa-desktop",
+                "F_UrlAddress": null,
+                "F_Target": "expand",
+                "F_IsMenu": 0,
+                "F_AllowExpand": 1,
+                "F_IsPublic": 0,
+                "F_AllowEdit": null,
+                "F_AllowDelete": null,
+                "F_SortCode": 1,
+                "F_DeleteMark": 0,
+                "F_EnabledMark": 1,
+                "F_Description": null,
+                "F_CreateDate": null,
+                "F_CreateUserId": null,
+                "F_CreateUserName": null,
+                "F_ModifyDate": "2015-11-17 11:22:46",
+                "F_ModifyUserId": "System",
+                "F_ModifyUserName": "超级管理员"
+            }, {
+                "F_ModuleId": "8",
+                "F_ParentId": "2",
+                "F_EnCode": "OrganizeManage",
+                "F_FullName": "机构管理",
+                "F_Icon": "fa fa-sitemap",
+                "F_UrlAddress": "/BaseManage/Organize/Index",
+                "F_Target": "iframe",
+                "F_IsMenu": 1,
+                "F_AllowExpand": 1,
+                "F_IsPublic": 0,
+                "F_AllowEdit": null,
+                "F_AllowDelete": null,
+                "F_SortCode": 1,
+                "F_DeleteMark": 0,
+                "F_EnabledMark": 1,
+                "F_Description": null,
+                "F_CreateDate": null,
+                "F_CreateUserId": null,
+                "F_CreateUserName": null,
+                "F_ModifyDate": "2016-04-29 11:55:28",
+                "F_ModifyUserId": "System",
+                "F_ModifyUserName": "超级管理员"
+            }, {
+                "F_ModuleId": "7ae94059-9aa5-48eb-8330-4e2a6565b193",
+                "F_ParentId": "1",
+                "F_EnCode": "AreaManage",
+                "F_FullName": "行政区域",
+                "F_Icon": "fa fa-leaf",
+                "F_UrlAddress": "/SystemManage/Area/Index",
+                "F_Target": "iframe",
+                "F_IsMenu": 1,
+                "F_AllowExpand": 1,
+                "F_IsPublic": 0,
+                "F_AllowEdit": null,
+                "F_AllowDelete": null,
+                "F_SortCode": 1,
+                "F_DeleteMark": 0,
+                "F_EnabledMark": 1,
+                "F_Description": "行政区域管理",
+                "F_CreateDate": "2015-11-12 14:38:20",
+                "F_CreateUserId": "System",
+                "F_CreateUserName": "超级管理员",
+                "F_ModifyDate": "2016-04-29 14:05:33",
+                "F_ModifyUserId": "System",
+                "F_ModifyUserName": "超级管理员"
+            }];
             var _html = "";
             $.each(data, function (i) {
                 var row = data[i];
@@ -311,12 +386,16 @@
                     _html += '<a href="#">'
                     _html += '<i class="' + row.F_Icon + '"></i><span>' + row.F_FullName + '</span><i class="fa fa-angle-left pull-right"></i>'
                     _html += '</a>'
-                    var childNodes = $.learunindex.jsonWhere(data, function (v) { return v.F_ParentId == row.F_ModuleId });
+                    var childNodes = $.learunindex.jsonWhere(data, function (v) {
+                        return v.F_ParentId == row.F_ModuleId
+                    });
                     if (childNodes.length > 0) {
                         _html += '<ul class="treeview-menu">';
                         $.each(childNodes, function (i) {
                             var subrow = childNodes[i];
-                            var subchildNodes = $.learunindex.jsonWhere(data, function (v) { return v.F_ParentId == subrow.F_ModuleId });
+                            var subchildNodes = $.learunindex.jsonWhere(data, function (v) {
+                                return v.F_ParentId == subrow.F_ModuleId
+                            });
                             _html += '<li>';
                             if (subchildNodes.length > 0) {
                                 _html += '<a href="#"><i class="' + subrow.F_Icon + '"></i>' + subrow.F_FullName + '';
@@ -345,16 +424,16 @@
                     e.slideUp(500, function () {
                         e.removeClass("menu-open")
                     }),
-                    e.parent("li").removeClass("active")
+                        e.parent("li").removeClass("active")
                 } else if (e.is(".treeview-menu") && !e.is(":visible")) {
                     var f = d.parents("ul").first(),
-                    g = f.find("ul:visible").slideUp(500);
+                        g = f.find("ul:visible").slideUp(500);
                     g.removeClass("menu-open");
                     var h = d.parent("li");
                     e.slideDown(500, function () {
                         e.addClass("menu-open"),
-                        f.find("li.active").removeClass("active"),
-                        h.addClass("active");
+                            f.find("li.active").removeClass("active"),
+                            h.addClass("active");
 
                         var _height1 = $(window).height() - $("#sidebar-menu >li.active").position().top - 41;
                         var _height2 = $("#sidebar-menu li > ul.menu-open").height() + 10

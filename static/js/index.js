@@ -7,7 +7,7 @@
 $(function () {
     'use strict'
     //自定义信息
-    $("#LAZY-main-iframe").height($(window).height() - 120);
+    $(".LAZY-main-iframe").height($(window).height() - 120);
     $(window).resize(function (e) {
         $("#LAZY-main-iframe").height($(window).height() - 120);
     });
