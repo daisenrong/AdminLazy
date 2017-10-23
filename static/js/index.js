@@ -9,7 +9,8 @@ $(function () {
     //自定义信息
     $(".LAZY-main-iframe").height($(window).height() - 120);
     $(window).resize(function (e) {
-        $("#LAZY-main-iframe").height($(window).height() - 120);
+        console.log("resize");
+        $(".LAZY-main-iframe").height($(window).height() - 120);
     });
 
     /**
@@ -21,7 +22,7 @@ $(function () {
 
     var $pushMenu = $('[data-toggle="push-menu"]').data('lte.pushmenu');
     var $controlSidebar = $('[data-toggle="control-sidebar"]').data('lte.controlsidebar');
-    //这里不知道为什么初始化失败，需要在此初始化
+    //这里不知道为什么初始化失败，需要再次初始化
     var $layout = $('body').data('lte.layout');
 
     /**
@@ -80,7 +81,7 @@ $(function () {
      * @returns void
      */
     function changeLayout(cls) {
-        console.log("changeLayout  cls:" + cls);
+        // console.log("changeLayout  cls:" + cls);
         $('body').toggleClass(cls);
         if ($layout == undefined) {
             // console.log("$layout is undefined");
@@ -97,13 +98,12 @@ $(function () {
 
         //修改iframe的高度
         if (!$('body').hasClass('fixed') && cls == 'fixed') {
-            var h = $("#LAZY-main-iframe").contents().find("body").height();
-            console.log(h);
-            $("#LAZY-main-iframe").height(h);
+            var h = $(".LAZY-main-iframe:visible").contents().find("body").height();
+            console.log("h:"+h);
+            $(".LAZY-main-iframe").height(h);
         } else if ($('body').hasClass('fixed') && cls == 'fixed') {
-            $("#LAZY-main-iframe").height($(window).height() - 120);
+            $(".LAZY-main-iframe").height($(window).height() - 120);
         }
-
     }
 
     /**
