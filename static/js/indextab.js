@@ -275,10 +275,12 @@
     };
     $.learunindex = {
         load: function () {
-            $("body").removeClass("hold-transition")
-            $("#content-wrapper").find('.mainContent').height($(window).height() - 100);
+            $("body").removeClass("hold-transition");
+            $(".content-wrapper").find('.mainContent').height($(window).height() - 160);
+            console.log("mainContent height:"+($(".content-wrapper").find('.mainContent').height()));
+            console.log("window height:"+($(window).height() - 100));
             $(window).resize(function (e) {
-                $("#content-wrapper").find('.mainContent').height($(window).height() - 100);
+                $(".content-wrapper").find('.mainContent').height($(window).height() - 160);
             });
             $(".sidebar-toggle").click(function () {
                 if (!$("body").hasClass("sidebar-collapse")) {
@@ -286,12 +288,14 @@
                 } else {
                     $("body").removeClass("sidebar-collapse");
                 }
-            })
-            $(window).load(function () {
-                window.setTimeout(function () {
-                    $('#ajax-loader').fadeOut();
-                }, 300);
             });
+
+            //TODO：暂时注释，等待寻找load的替代方案
+            // $(window).load(function () {
+            //     window.setTimeout(function () {
+            //         $('#ajax-loader').fadeOut();
+            //     }, 300);
+            // });
         },
         jsonWhere: function (data, action) {
             if (action == null) return;
@@ -450,7 +454,7 @@
         }
     };
     $(function () {
-        // $.learunindex.load();
+        $.learunindex.load();
         // $.learunindex.loadMenu();
         $.learuntab.init();
     });

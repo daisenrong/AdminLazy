@@ -7,11 +7,10 @@
 $(function () {
     'use strict'
     //自定义信息
-    $(".LAZY-main-iframe").height($(window).height() - 120);
-    $(window).resize(function (e) {
-        console.log("resize");
-        $(".LAZY-main-iframe").height($(window).height() - 120);
-    });
+    // $(".LAZY-main-iframe").height($(window).height() - 120);
+    // $(window).resize(function (e) {
+    //     $(".LAZY-main-iframe").height($(window).height() - 120);
+    // });
 
     /**
      * Get access to plugins
@@ -97,13 +96,13 @@ $(function () {
         $controlSidebar.fix();
 
         //修改iframe的高度
-        if (!$('body').hasClass('fixed') && cls == 'fixed') {
-            var h = $(".LAZY-main-iframe:visible").contents().find("body").height();
-            console.log("h:"+h);
-            $(".LAZY-main-iframe").height(h);
-        } else if ($('body').hasClass('fixed') && cls == 'fixed') {
-            $(".LAZY-main-iframe").height($(window).height() - 120);
-        }
+        // if (!$('body').hasClass('fixed') && cls == 'fixed') {
+        //     var h = $(".LAZY-main-iframe:visible").contents().find("body").height();
+        //     console.log("h:"+h);
+        //     $(".LAZY-main-iframe").height(h);
+        // } else if ($('body').hasClass('fixed') && cls == 'fixed') {
+        //     $(".LAZY-main-iframe").height($(window).height() - 120);
+        // }
     }
 
     /**
