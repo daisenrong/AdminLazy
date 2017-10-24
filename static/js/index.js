@@ -99,12 +99,13 @@ $(function () {
 
         //修改iframe的高度
         if (!$('body').hasClass('fixed') && cls == 'fixed') {
-            var h = $(".LAZY-main-iframe:visible").contents().find("html").height();
+            var h = $(".LAZY-main-iframe").contents().find("body").height();
             console.log("h:" + h);
             // $(".LAZY-main-iframe").height(h);
-            $(".content-wrapper").find('.mainContent').height(h+180);
+            // $(".content-wrapper").find('.mainContent').height(h);
+            $("#content-main").height(h);
         } else if ($('body').hasClass('fixed') && cls == 'fixed') {
-            $(".content-wrapper").find('.mainContent').height($(window).height() -160);
+            $(".content-wrapper").find('.mainContent').height($(window).height() - 130);
             // $(".LAZY-main-iframe").height($(window).height() - 160);
         }
     }
