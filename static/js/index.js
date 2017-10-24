@@ -99,7 +99,7 @@ $(function () {
 
         //修改iframe的高度
         if (!$('body').hasClass('fixed') && cls == 'fixed') {
-            var h = $(".LAZY-main-iframe:visible").contents().find("body").height();
+            var h = $(".LAZY-main-iframe:visible").contents().find("html").height();
             console.log("h:" + h);
             // $(".LAZY-main-iframe").height(h);
             $(".content-wrapper").find('.mainContent').height(h+180);
