@@ -19,6 +19,7 @@ $(function () {
     $('[data-toggle="control-sidebar"]').controlSidebar();
     $('[data-toggle="push-menu"]').pushMenu();
 
+
     var $pushMenu = $('[data-toggle="push-menu"]').data('lte.pushmenu');
     var $controlSidebar = $('[data-toggle="control-sidebar"]').data('lte.controlsidebar');
     //这里不知道为什么初始化失败，需要再次初始化
@@ -80,6 +81,7 @@ $(function () {
      * @returns void
      */
     function changeLayout(cls) {
+
         // console.log("changeLayout  cls:" + cls);
         $('body').toggleClass(cls);
         if ($layout == undefined) {
@@ -96,13 +98,15 @@ $(function () {
         $controlSidebar.fix();
 
         //修改iframe的高度
-        // if (!$('body').hasClass('fixed') && cls == 'fixed') {
-        //     var h = $(".LAZY-main-iframe:visible").contents().find("body").height();
-        //     console.log("h:"+h);
-        //     $(".LAZY-main-iframe").height(h);
-        // } else if ($('body').hasClass('fixed') && cls == 'fixed') {
-        //     $(".LAZY-main-iframe").height($(window).height() - 120);
-        // }
+        if (!$('body').hasClass('fixed') && cls == 'fixed') {
+            var h = $(".LAZY-main-iframe:visible").contents().find("body").height();
+            console.log("h:" + h);
+            // $(".LAZY-main-iframe").height(h);
+            $(".content-wrapper").find('.mainContent').height(h+180);
+        } else if ($('body').hasClass('fixed') && cls == 'fixed') {
+            $(".content-wrapper").find('.mainContent').height($(window).height() -160);
+            // $(".LAZY-main-iframe").height($(window).height() - 160);
+        }
     }
 
     /**
@@ -143,7 +147,6 @@ $(function () {
         // Add the layout manager
         //添加布局修改监听
         $('[data-layout]').on('click', function () {
-            console.log("data-layout  on");
             changeLayout($(this).data('layout'));
         });
         //切换右侧边栏幻灯片监听
