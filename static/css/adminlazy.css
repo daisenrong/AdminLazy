@@ -147,11 +147,11 @@ body {
 /* Content */
 .content {
   min-height: 250px;
-  padding: 15px;
+  padding: 10px;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 /* H1 - H6 font */
 h1,
@@ -1095,7 +1095,8 @@ a:focus {
 .navbar-nav > .user-menu > .dropdown-menu {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-  padding: 1px 0 0 0;
+  /*padding: 1px 0 0 0;*/
+  padding: 0;
   border-top-width: 0;
   width: 280px;
 }
@@ -5671,7 +5672,7 @@ table.text-center th {
     white-space: normal !important;
   }
 }
-
+/*标签页*/
 /*.content-wrapper {margin-left: 230px;}*/
 .content-wrapper .content-tabs{position:relative;height:41px;line-height:39.5px;background:#fafafa;border-bottom:solid 2px #222d32;font-size:12px;}
 .content-wrapper .content-tabs .roll-nav,.page-tabs-list{position:absolute;width:40px;height:39.5px;text-align:center;color:#475059;z-index:2;top:0}
@@ -5693,7 +5694,7 @@ table.text-center th {
 .content-wrapper .content-tabs .roll-right.btn-group button{width:80px}
 .content-wrapper .content-tabs .roll-right.tabExit{background:#fff;height:39px;width:40px;outline:0}
 .content-wrapper .content-tabs .dropdown-menu{border:solid 1px #ccc;border-top-left-radius:0px;border-top-right-radius:0px;right:-1px;}
-
+/*拖动条*/
 ::-webkit-scrollbar-track{border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);}
 ::-webkit-scrollbar-thumb{background-color: rgba(0,0,0,0.05);border-radius: 10px;-webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);}
 ::-webkit-scrollbar-thumb{background-color: rgba(0,0,0,0.2);border-radius: 10px;-webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);}
