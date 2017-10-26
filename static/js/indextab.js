@@ -274,21 +274,26 @@
         }
     };
     $.learunindex = {
-        load: function () {
-            if($("body").hasClass("fixed")){
+        changeMainContentHeight: function () {
+            //修改iframe的高度
+            if ($("body").hasClass("fixed")) {
                 $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
-            }else {
-                $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
+            } else {
+                // $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
+                var h_temp = $(".LAZY-main-iframe:visible").contents().find("body").height();
+                console.error("height");
+                $(".content-wrapper .mainContent").height(h_temp);
             }
+
+        },
+        load: function () {
+            $.learunindex.changeMainContentHeight();
+
 
             // console.log("mainContent height:"+($(".content-wrapper").find('.mainContent').height()));
             // console.log("window height:"+($(window).height() - 100));
             $(window).resize(function (e) {
-                if($("body").hasClass("fixed")){
-                    $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
-                }else {
-                    $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
-                }
+                $.learunindex.changeMainContentHeight();
                 // $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
             });
             //针对菜单的收起按钮放到了index。js中进行处理
