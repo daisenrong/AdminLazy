@@ -281,7 +281,7 @@
             } else {
                 // $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
                 var h_temp = $(".LAZY-main-iframe:visible").contents().find("body").height()+30;
-                console.error("height:"+h_temp);
+                console.error("height:" + h_temp);
                 $(".content-wrapper .mainContent").height(h_temp);
             }
 
