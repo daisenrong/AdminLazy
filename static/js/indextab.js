@@ -277,6 +277,7 @@
         }
     };
     $.learunindex = {
+        //修改iframe高度
         changeIframeHeight: function () {
             //修改iframe的高度
             if ($("body").hasClass("fixed")) {
@@ -296,8 +297,6 @@
         },
         load: function () {
             $.learunindex.changeIframeHeight();
-
-
             // console.log("mainContent height:"+($(".content-wrapper").find('.mainContent').height()));
             // console.log("window height:"+($(window).height() - 100));
             $(window).resize(function (e) {
