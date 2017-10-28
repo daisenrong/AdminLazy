@@ -20,6 +20,8 @@ $(function () {
     $('[data-toggle="push-menu"]').pushMenu();
 
 
+
+
     var $pushMenu = $('[data-toggle="push-menu"]').data('lte.pushmenu');
     var $controlSidebar = $('[data-toggle="control-sidebar"]').data('lte.controlsidebar');
     //这里不知道为什么初始化失败，需要再次初始化
@@ -97,7 +99,8 @@ $(function () {
         }
         $controlSidebar.fix();
         //改变布局之后修改mainContent的高度
-        $.learunindex.changeMainContentHeight();
+        $.learunindex.changeIframeHeight();
+        // $(".control-sidebar").height($(window).height() - 102);
     }
 
     /**
@@ -187,6 +190,14 @@ $(function () {
     //自定义配置
     // $('[data-layout="fixed"]').attr('checked', 'checked');
     // changeLayout('fixed');
+
+    // $('[data-toggle="control-sidebar"]').on('click',function () {
+    //     $(".control-sidebar").height($(window).height() - 102);
+    // });
+    // $(window).resize(function (e) {
+    //     $(".control-sidebar").height($(window).height() - 102);
+    // });
+
 
 
 });

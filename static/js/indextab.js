@@ -32,6 +32,7 @@
             //     // $.loading(false);
             // });
             target.attr('src', url);
+            $.learunindex.changeIframeHeight();
 
         },
         activeTab: function () {
@@ -45,6 +46,7 @@
                 });
                 $(this).addClass('active').siblings('.menuTab').removeClass('active');
                 $.learuntab.scrollToTab(this);
+                $.learunindex.changeIframeHeight();
             }
         },
         closeOtherTabs: function () {
@@ -153,6 +155,7 @@
                 $('.menuTabs .page-tabs-content').append(str);
                 $.learuntab.scrollToTab($('.menuTab.active'));
             }
+            $.learunindex.changeIframeHeight();
             return false;
         },
         scrollTabRight: function () {
@@ -274,26 +277,31 @@
         }
     };
     $.learunindex = {
-        changeMainContentHeight: function () {
+        changeIframeHeight: function () {
             //修改iframe的高度
             if ($("body").hasClass("fixed")) {
-                $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
+                $(".LAZY-main-iframe:visible").height($(window).height() - 96);
             } else {
-                // $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
-                var h_temp = $(".LAZY-main-iframe:visible").contents().find("body").height()+30;
-                console.error("height:"+h_temp);
-                $(".content-wrapper .mainContent").height(h_temp);
+                var con_height = $(".control-sidebar").height();
+                var h_temp = $(".LAZY-main-iframe:visible").contents().find("body").height() + 60;
+                var height = 0;
+                if (con_height > h_temp) {
+                    height = con_height;
+                } else {
+                    height = h_temp;
+                }
+                // console.error("height:" + height);
+                $(".LAZY-main-iframe:visible").height(height);
             }
-
         },
         load: function () {
-            $.learunindex.changeMainContentHeight();
+            $.learunindex.changeIframeHeight();
 
 
             // console.log("mainContent height:"+($(".content-wrapper").find('.mainContent').height()));
             // console.log("window height:"+($(window).height() - 100));
             $(window).resize(function (e) {
-                $.learunindex.changeMainContentHeight();
+                $.learunindex.changeIframeHeight();
                 // $(".content-wrapper").find('.mainContent').height($(window).height() - 91);
             });
             //针对菜单的收起按钮放到了index。js中进行处理
