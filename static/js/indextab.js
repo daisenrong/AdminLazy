@@ -1,4 +1,4 @@
-﻿(function ($) {
+﻿﻿(function ($) {
     $.learuntab = {
         requestFullScreen: function () {
             var de = document.documentElement;
