@@ -60,7 +60,7 @@
             var closeTabId = $(this).parents('.menuTab').data('id');
             var currentWidth = $(this).parents('.menuTab').width();
             if ($(this).parents('.menuTab').hasClass('active')) {
-                if ($(this).parents('.menuTab').next('.menuTab').size()) {
+                if ($(this).parents('.menuTab').next('.menuTab').length) {
                     var activeId = $(this).parents('.menuTab').next('.menuTab:eq(0)').data('id');
                     $(this).parents('.menuTab').next('.menuTab:eq(0)').addClass('active');
 
@@ -84,7 +84,7 @@
                         }
                     });
                 }
-                if ($(this).parents('.menuTab').prev('.menuTab').size()) {
+                if ($(this).parents('.menuTab').prev('.menuTab').length) {
                     var activeId = $(this).parents('.menuTab').prev('.menuTab:last').data('id');
                     $(this).parents('.menuTab').prev('.menuTab:last').addClass('active');
                     $('.mainContent .LAZY-main-iframe').each(function () {
@@ -281,10 +281,12 @@
         changeIframeHeight: function () {
             //修改iframe的高度
             if ($("body").hasClass("fixed")) {
-                $(".LAZY-main-iframe:visible").height($(window).height() - 96);
+                $(".LAZY-main-iframe:visible").height($(window).height() - $('.main-header').height()-$('.content-tabs').height()-7);
+                // console.log($('.main-header').height()+"ssssss"+$('.content-tabs').height());
             } else {
                 var con_height = $(".control-sidebar").height();
-                var h_temp = $(".LAZY-main-iframe:visible").contents().find("body").height() + 60;
+                var h_temp = $(".LAZY-main-iframe:visible").contents().find("body").height();
+                console.log(con_height+"_____"+h_temp);
                 var height = 0;
                 if (con_height > h_temp) {
                     height = con_height;
