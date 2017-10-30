@@ -1,4 +1,7 @@
-﻿﻿(function ($) {
+﻿/**
+ *AdminLazy  indexTab  js
+ */
+(function ($) {
     $.learuntab = {
         requestFullScreen: function () {
             var de = document.documentElement;
@@ -27,13 +30,12 @@
             // console.log("currentId:"+currentId);
             // console.log("target:"+target);
             // console.log("url:"+url);
-            // $.loading(true);
-            // target.attr('src', url).load(function () {
-            //     // $.loading(false);
-            // });
-            target.attr('src', url);
+            // $('#ajax-loader-iframe').show(100);
+            target.attr('src', url).load(function () {
+                // $('#ajax-loader-iframe').hide();
+            });
+            // target.attr('src', url);
             $.learunindex.changeIframeHeight();
-
         },
         activeTab: function () {
             var currentId = $(this).data('id');
@@ -281,12 +283,12 @@
         changeIframeHeight: function () {
             //修改iframe的高度
             if ($("body").hasClass("fixed")) {
-                $(".LAZY-main-iframe:visible").height($(window).height() - $('.main-header').height()-$('.content-tabs').height()-7);
+                $(".LAZY-main-iframe:visible").height($(window).height() - $('.main-header').height() - $('.content-tabs').height() - 7);
                 // console.log($('.main-header').height()+"ssssss"+$('.content-tabs').height());
             } else {
                 var con_height = $(".control-sidebar").height();
                 var h_temp = $(".LAZY-main-iframe:visible").contents().find("body").height();
-                console.log(con_height+"_____"+h_temp);
+                console.log(con_height + "_____" + h_temp);
                 var height = 0;
                 if (con_height > h_temp) {
                     height = con_height;
@@ -315,11 +317,11 @@
             // });
 
             //TODO：暂时注释，等待寻找load的替代方案
-            // $(window).load(function () {
-            //     window.setTimeout(function () {
-            //         $('#ajax-loader').fadeOut();
-            //     }, 300);
-            // });
+            $(window).load(function () {
+                window.setTimeout(function () {
+                    $('#ajax-loader').fadeOut();
+                }, 200);
+            });
         },
         jsonWhere: function (data, action) {
             if (action == null) return;
@@ -355,15 +357,38 @@
                 "F_ModifyDate": "2015-11-17 11:22:46",
                 "F_ModifyUserId": "System",
                 "F_ModifyUserName": "超级管理员"
-            }, {
-                "F_ModuleId": "8",
-                "F_ParentId": "2",
-                "F_EnCode": "OrganizeManage",
-                "F_FullName": "机构管理",
-                "F_Icon": "fa fa-sitemap",
-                "F_UrlAddress": "/BaseManage/Organize/Index",
+            },{
+                "F_ModuleId": "2",
+                "F_ParentId": "1",
+                "F_EnCode": "AreaManage",
+                "F_FullName": "常用元素",
+                "F_Icon": "fa fa-leaf",
+                "F_UrlAddress": "indexIframe2.html",
                 "F_Target": "iframe",
                 "F_IsMenu": 1,
+                "F_AllowExpand": 1,
+                "F_IsPublic": 0,
+                "F_AllowEdit": null,
+                "F_AllowDelete": null,
+                "F_SortCode": 1,
+                "F_DeleteMark": 0,
+                "F_EnabledMark": 1,
+                "F_Description": "常用元素",
+                "F_CreateDate": "2015-11-12 14:38:20",
+                "F_CreateUserId": "System",
+                "F_CreateUserName": "超级管理员",
+                "F_ModifyDate": "2016-04-29 14:05:33",
+                "F_ModifyUserId": "System",
+                "F_ModifyUserName": "超级管理员"
+            },{
+                "F_ModuleId": "4",
+                "F_ParentId": "0",
+                "F_EnCode": "SysManage",
+                "F_FullName": "系统管理2",
+                "F_Icon": "fa fa-desktop",
+                "F_UrlAddress": null,
+                "F_Target": "expand",
+                "F_IsMenu": 0,
                 "F_AllowExpand": 1,
                 "F_IsPublic": 0,
                 "F_AllowEdit": null,
@@ -375,16 +400,16 @@
                 "F_CreateDate": null,
                 "F_CreateUserId": null,
                 "F_CreateUserName": null,
-                "F_ModifyDate": "2016-04-29 11:55:28",
+                "F_ModifyDate": "2015-11-17 11:22:46",
                 "F_ModifyUserId": "System",
                 "F_ModifyUserName": "超级管理员"
-            }, {
-                "F_ModuleId": "7ae94059-9aa5-48eb-8330-4e2a6565b193",
-                "F_ParentId": "1",
+            },{
+                "F_ModuleId": "5",
+                "F_ParentId": "4",
                 "F_EnCode": "AreaManage",
-                "F_FullName": "行政区域",
+                "F_FullName": "常用元素2",
                 "F_Icon": "fa fa-leaf",
-                "F_UrlAddress": "/SystemManage/Area/Index",
+                "F_UrlAddress": "examples/404.html",
                 "F_Target": "iframe",
                 "F_IsMenu": 1,
                 "F_AllowExpand": 1,
@@ -394,7 +419,7 @@
                 "F_SortCode": 1,
                 "F_DeleteMark": 0,
                 "F_EnabledMark": 1,
-                "F_Description": "行政区域管理",
+                "F_Description": "常用元素",
                 "F_CreateDate": "2015-11-12 14:38:20",
                 "F_CreateUserId": "System",
                 "F_CreateUserName": "超级管理员",
@@ -449,16 +474,17 @@
             $("#sidebar-menu li a").click(function () {
                 var d = $(this), e = d.next();
                 if (e.is(".treeview-menu") && e.is(":visible")) {
-                    e.slideUp(500, function () {
+                    e.slideUp(300, function () {
                         e.removeClass("menu-open")
-                    }),
-                        e.parent("li").removeClass("active")
+                    })
+                        //这个地方存在bug，第一次点击收起时没有效果，等待以后解决
+                        // e.parent("li").removeClass("active")
                 } else if (e.is(".treeview-menu") && !e.is(":visible")) {
                     var f = d.parents("ul").first(),
-                        g = f.find("ul:visible").slideUp(500);
+                        g = f.find("ul:visible").slideUp(300);
                     g.removeClass("menu-open");
                     var h = d.parent("li");
-                    e.slideDown(500, function () {
+                    e.slideDown(300, function () {
                         e.addClass("menu-open"),
                             f.find("li.active").removeClass("active"),
                             h.addClass("active");
@@ -479,7 +505,7 @@
     };
     $(function () {
         $.learunindex.load();
-        // $.learunindex.loadMenu();
+        $.learunindex.loadMenu();
         $.learuntab.init();
     });
 })(jQuery);
