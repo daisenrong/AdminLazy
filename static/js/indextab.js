@@ -68,6 +68,7 @@
                 $(this).addClass("active");
             });
             $('.page-tabs-content').css("margin-left", "0");
+            $.learunindex.changeIframeHeight();
         },
         closeTab: function () {
             var closeTabId = $(this).parents('.menuTab').data('id');
@@ -125,6 +126,7 @@
                 });
                 $.learuntab.scrollToTab($('.menuTab.active'));
             }
+            // $.learunindex.changeIframeHeight();
             return false;
         },
         addTab: function () {
@@ -147,6 +149,7 @@
                         $('.mainContent .LAZY-main-iframe').each(function () {
                             if ($(this).data('id') == dataUrl) {
                                 $(this).show().siblings('.LAZY-main-iframe').hide();
+                                $.learunindex.changeIframeHeight();
                                 return false;
                             }
                         });
@@ -162,13 +165,17 @@
                 $('.mainContent').find('iframe.LAZY-main-iframe').hide();
                 $('.mainContent').append(str1);
                 //$.loading(true);
+                // $.lazyutil.ajaxLoaderShow();
+                $("#ajax-loader").fadeIn(500);
                 $('.mainContent iframe:visible').load(function () {
-                    //$.loading(false);
+                    $.learunindex.changeIframeHeight();
+                    // $.lazyutil.ajaxLoaderHide();
+                    $("#ajax-loader").fadeOut(1000);
                 });
                 $('.menuTabs .page-tabs-content').append(str);
                 $.learuntab.scrollToTab($('.menuTab.active'));
             }
-            $.learunindex.changeIframeHeight();
+
             return false;
         },
         scrollTabRight: function () {
@@ -288,8 +295,9 @@
                 // console.log($('.main-header').height()+"ssssss"+$('.content-tabs').height());
             } else {
                 var con_height = $(".control-sidebar").height();
-                var h_temp = $(".LAZY-main-iframe:visible").contents().find("body").height();
-                console.log(con_height + "_____" + h_temp);
+                // var h_temp = $(".LAZY-main-iframe:visible").contents().find("body").height();
+                var h_temp = $(".LAZY-main-iframe:visible")[0].contentWindow.document.body.scrollHeight;
+                // console.log(con_height + "_____" + h_temp);
                 var height = 0;
                 if (con_height > h_temp) {
                     height = con_height;
@@ -298,6 +306,7 @@
                 }
                 // console.error("height:" + height);
                 $(".LAZY-main-iframe:visible").height(height);
+                // console.log($(".LAZY-main-iframe:visible").height());
             }
         },
         load: function () {

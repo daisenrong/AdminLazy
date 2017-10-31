@@ -271,17 +271,6 @@
     <!--主要内容区域  开始-->
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <!--<section class="content-header">-->
-        <!--<h1>-->
-        <!--Dashboard-->
-        <!--<small>Control panel</small>-->
-        <!--</h1>-->
-        <!--<ol class="breadcrumb">-->
-        <!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
-        <!--<li class="active">Dashboard</li>-->
-        <!--</ol>-->
-        <!--</section>-->
 
         <div class="content-tabs">
             <button class="roll-nav roll-left tabLeft">
@@ -311,19 +300,15 @@
             <button class="roll-nav roll-right fullscreen"><i class="fa fa-arrows-alt"></i></button>
         </div>
 
-        <!-- Main content -->
-
-        <!-- Small boxes (Stat box) -->
         <div class="content-iframe" style="overflow: hidden;">
+            <div id="" style="cursor: progress; position: fixed;  width: 100%; height: 100%; background: #fff; overflow: hidden;margin: 0 auto;">
+                <img src="../static/img/ajax-loader.gif" />
+            </div>
             <div class="mainContent" id="content-main" style="margin: 0; padding: 0;">
-                <iframe id="LAZY-main-iframe" class="LAZY-main-iframe" width="100%" src="indexIframe.html" frameborder="0" data-id="indexIframe.html"></iframe>
+                <iframe id="LAZY-main-iframe" class="LAZY-main-iframe" width="100%" height="100%" src="indexIframe.html" frameborder="0" data-id="indexIframe.html"></iframe>
                 <!--<iframe class="LAZY-main-iframe" style="display: none" width="100%" src="indexIframe2.html" frameborder="0" data-id="indexIframe2.html"></iframe>-->
             </div>
         </div>
-        <!-- /.row (main row) -->
-
-
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <!--主要内容区域  结束-->
@@ -703,5 +688,6 @@
 <!-- AdminLazy for demo purposes -->
 <script src="../static/js/index.js?v=1.1"></script>
 <script src="../static/js/indextab.js?v=1.0"></script>
+<script src="../static/js/lazyutil.js?v=1.0"></script>
 </body>
 </html>
