@@ -58,6 +58,17 @@
             });
             $('.page-tabs-content').css("margin-left", "0");
         },
+        closeAllTab: function () {
+            $('.page-tabs-content').children("[data-id]").find('.fa-remove').each(function () {
+                $('.LAZY-main-iframe[data-id="' + $(this).parent().data('id') + '"]').remove();
+                $(this).parents('a').remove();
+            });
+            $('.page-tabs-content').children("[data-id]:first").each(function () {
+                $('.LAZY-main-iframe[data-id="' + $(this).data('id') + '"]').show();
+                $(this).addClass("active");
+            });
+            $('.page-tabs-content').css("margin-left", "0");
+        },
         closeTab: function () {
             var closeTabId = $(this).parents('.menuTab').data('id');
             var currentWidth = $(this).parents('.menuTab').width();
@@ -255,17 +266,7 @@
             $('.tabCloseCurrent').on('click', function () {
                 $('.page-tabs-content').find('.active i').trigger("click");
             });
-            $('.tabCloseAll').on('click', function () {
-                $('.page-tabs-content').children("[data-id]").find('.fa-remove').each(function () {
-                    $('.LAZY-main-iframe[data-id="' + $(this).data('id') + '"]').remove();
-                    $(this).parents('a').remove();
-                });
-                $('.page-tabs-content').children("[data-id]:first").each(function () {
-                    $('.LAZY-main-iframe[data-id="' + $(this).data('id') + '"]').show();
-                    $(this).addClass("active");
-                });
-                $('.page-tabs-content').css("margin-left", "0");
-            });
+            $('.tabCloseAll').on('click', $.learuntab.closeAllTab);
             $('.tabCloseOther').on('click', $.learuntab.closeOtherTabs);
             $('.fullscreen').on('click', function () {
                 if (!$(this).attr('fullscreen')) {
@@ -357,7 +358,7 @@
                 "F_ModifyDate": "2015-11-17 11:22:46",
                 "F_ModifyUserId": "System",
                 "F_ModifyUserName": "超级管理员"
-            },{
+            }, {
                 "F_ModuleId": "2",
                 "F_ParentId": "1",
                 "F_EnCode": "AreaManage",
@@ -380,7 +381,7 @@
                 "F_ModifyDate": "2016-04-29 14:05:33",
                 "F_ModifyUserId": "System",
                 "F_ModifyUserName": "超级管理员"
-            },{
+            }, {
                 "F_ModuleId": "4",
                 "F_ParentId": "0",
                 "F_EnCode": "SysManage",
@@ -403,7 +404,7 @@
                 "F_ModifyDate": "2015-11-17 11:22:46",
                 "F_ModifyUserId": "System",
                 "F_ModifyUserName": "超级管理员"
-            },{
+            }, {
                 "F_ModuleId": "5",
                 "F_ParentId": "4",
                 "F_EnCode": "AreaManage",
@@ -477,8 +478,8 @@
                     e.slideUp(300, function () {
                         e.removeClass("menu-open")
                     })
-                        //这个地方存在bug，第一次点击收起时没有效果，等待以后解决
-                        // e.parent("li").removeClass("active")
+                    //这个地方存在bug，第一次点击收起时没有效果，等待以后解决
+                    // e.parent("li").removeClass("active")
                 } else if (e.is(".treeview-menu") && !e.is(":visible")) {
                     var f = d.parents("ul").first(),
                         g = f.find("ul:visible").slideUp(300);
