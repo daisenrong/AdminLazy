@@ -115,8 +115,7 @@
                         }
                     });
                 }
-            }
-            else {
+            } else {
                 $(this).parents('.menuTab').remove();
                 $('.mainContent .LAZY-main-iframe').each(function () {
                     if ($(this).data('id') == closeTabId) {
