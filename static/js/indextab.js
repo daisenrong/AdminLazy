@@ -24,6 +24,7 @@
             }
         },
         refreshTab: function () {
+            $("#ajax-loader-iframe").fadeIn(500);
             var currentId = $('.page-tabs-content').find('.active').attr('data-id');
             var target = $('.LAZY-main-iframe[data-id="' + currentId + '"]');
             var url = target.attr('src');
@@ -31,11 +32,13 @@
             // console.log("target:"+target);
             // console.log("url:"+url);
             // $('#ajax-loader-iframe').show(100);
+
             target.attr('src', url).load(function () {
-                // $('#ajax-loader-iframe').hide();
+                $.learunindex.changeIframeHeight();
+                $("#ajax-loader-iframe").fadeOut(500);
             });
             // target.attr('src', url);
-            $.learunindex.changeIframeHeight();
+
         },
         activeTab: function () {
             var currentId = $(this).data('id');
@@ -158,6 +161,7 @@
                 }
             });
             if (flag) {
+                $("#ajax-loader-iframe").fadeIn(500);
                 var str = '<a href="javascript:;" class="active menuTab" data-id="' + dataUrl + '">' + menuName + ' <i class="fa fa-remove"></i></a>';
                 $('.menuTab').removeClass('active');
                 var str1 = '<iframe class="LAZY-main-iframe" id="iframe' + dataId + '" name="iframe' + dataId + '"  width="100%" height="100%" src="' + dataUrl + '" frameborder="0" data-id="' + dataUrl + '" seamless></iframe>';
@@ -165,11 +169,11 @@
                 $('.mainContent').append(str1);
                 //$.loading(true);
                 // $.lazyutil.ajaxLoaderShow();
-                $("#ajax-loader").fadeIn(500);
+
                 $('.mainContent iframe:visible').load(function () {
                     $.learunindex.changeIframeHeight();
                     // $.lazyutil.ajaxLoaderHide();
-                    $("#ajax-loader").fadeOut(1000);
+                    $("#ajax-loader-iframe").fadeOut(500);
                 });
                 $('.menuTabs .page-tabs-content').append(str);
                 $.learuntab.scrollToTab($('.menuTab.active'));
@@ -291,6 +295,9 @@
             //修改iframe的高度
             if ($("body").hasClass("fixed")) {
                 $(".LAZY-main-iframe:visible").height($(window).height() - $('.main-header').height() - $('.content-tabs').height() - 7);
+                // $("#ajax-loader-iframe").height($(window).height() - $('.main-header').height() - $('.content-tabs').height() - 7);
+                // $("#ajax-loader-iframe").width($(".content-iframe").width());
+
                 // console.log($('.main-header').height()+"ssssss"+$('.content-tabs').height());
             } else {
                 var con_height = $(".control-sidebar").height();

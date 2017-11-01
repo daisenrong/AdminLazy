@@ -11,22 +11,22 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../static/plugins/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="../static/plugins/Ionicons/css/ionicons.min.css">
+    <!--<link rel="stylesheet" href="../static/plugins/Ionicons/css/ionicons.min.css">-->
     <!-- Theme style -->
     <link rel="stylesheet" href="../static/css/adminlazy.css">
     <!-- AdminLazy Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../static/css/skins/_all-skins.css">
     <!-- Morris chart -->
-    <link rel="stylesheet" href="../static/plugins/morris/css/morris.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="../static/plugins/jvectormap/css/jquery-jvectormap.css">
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="../static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="../static/plugins/bootstrap-daterangepicker/css/daterangepicker.css">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="../static/plugins/bootstrap-wysihtml5/css/bootstrap3-wysihtml5.min.css">
+    <!--<link rel="stylesheet" href="../static/plugins/morris/css/morris.css">-->
+    <!--&lt;!&ndash; jvectormap &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="../static/plugins/jvectormap/css/jquery-jvectormap.css">-->
+    <!--&lt;!&ndash; Date Picker &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="../static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css">-->
+    <!--&lt;!&ndash; Daterange picker &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="../static/plugins/bootstrap-daterangepicker/css/daterangepicker.css">-->
+    <!--&lt;!&ndash; bootstrap wysihtml5 - text editor &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="../static/plugins/bootstrap-wysihtml5/css/bootstrap3-wysihtml5.min.css">-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,7 +48,7 @@
     <!--头部  开始-->
     <header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="http://www.lazycode.vip" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>L</b>azy</span>
             <!-- logo for regular state and mobile devices -->
@@ -302,10 +302,10 @@
 
         <div class="content-iframe" style="overflow: hidden;">
 
-            <div class="mainContent" id="content-main" style="margin: 0; padding: 0;" >
+            <div class="mainContent" id="content-main" style="margin: 0; padding: 0;">
                 <!--<div id="" style="cursor: progress; position: fixed;  width: 100%; height: 100%; background: #fff; overflow: hidden;margin: 0 auto;">-->
-                <div id="" style="cursor: progress;position: fixed; width: 100%; height: 100%; background: #fff; overflow: hidden;">
-                    <img src="../static/img/ajax-loader.gif"/>
+                <div id="ajax-loader-iframe" style="cursor: progress;position:fixed; width: 100%; height: 100%;overflow: hidden;display: none">
+                    <img style="position: absolute;top:40%;margin-left:38%;transform: translateY(20%);" src="../static/img/ajax-loader.gif"/>
                 </div>
                 <iframe id="LAZY-main-iframe" class="LAZY-main-iframe" width="100%" height="100%" src="indexIframe.html" frameborder="0" data-id="indexIframe.html"></iframe>
                 <!--<iframe class="LAZY-main-iframe" style="display: none" width="100%" src="indexIframe2.html" frameborder="0" data-id="indexIframe2.html"></iframe>-->
@@ -658,31 +658,31 @@
 <script src="../static/plugins/jquery-ui/js/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    $.widget.bridge('uibutton', $.ui.button);
+//    $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../static/plugins/bootstrap/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
-<script src="../static/plugins/raphael/js/raphael.min.js"></script>
-<script src="../static/plugins/morris/js/morris.min.js"></script>
+<!--<script src="../static/plugins/raphael/js/raphael.min.js"></script>-->
+<!--<script src="../static/plugins/morris/js/morris.min.js"></script>-->
 <!-- Sparkline -->
-<script src="../static/plugins/jquery-sparkline/js/jquery.sparkline.min.js"></script>
+<!--<script src="../static/plugins/jquery-sparkline/js/jquery.sparkline.min.js"></script>-->
 <!-- jvectormap -->
 <!--<script src="../static/plugins/jvectormap/js/jquery-jvectormap-1.2.2.min.js"></script>-->
 <!--<script src="../static/plugins/jvectormap/js/jquery-jvectormap-world-mill-en.js"></script>-->
 <!-- jQuery Knob Chart -->
-<script src="../static/plugins/jquery-knob/js/jquery.knob.min.js"></script>
+<!--<script src="../static/plugins/jquery-knob/js/jquery.knob.min.js"></script>-->
 <!-- daterangepicker -->
-<script src="../static/plugins/moment/js/moment.min.js"></script>
-<script src="../static/plugins/bootstrap-daterangepicker/js/daterangepicker.js"></script>
+<!--<script src="../static/plugins/moment/js/moment.min.js"></script>-->
+<!--<script src="../static/plugins/bootstrap-daterangepicker/js/daterangepicker.js"></script>-->
 <!-- datepicker -->
-<script src="../static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="../static/plugins/bootstrap-wysihtml5/js/bootstrap3-wysihtml5.all.min.js"></script>
+<!--<script src="../static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>-->
+<!--&lt;!&ndash; Bootstrap WYSIHTML5 &ndash;&gt;-->
+<!--<script src="../static/plugins/bootstrap-wysihtml5/js/bootstrap3-wysihtml5.all.min.js"></script>-->
 <!-- Slimscroll -->
-<script src="../static/plugins/jquery-slimscroll/js/jquery.slimscroll.min.js"></script>
+<!--<script src="../static/plugins/jquery-slimscroll/js/jquery.slimscroll.min.js"></script>-->
 <!-- FastClick -->
-<script src="../static/plugins/fastclick/js/fastclick.js"></script>
+<!--<script src="../static/plugins/fastclick/js/fastclick.js"></script>-->
 <!-- AdminLazy App -->
 <script src="../static/js/adminlazy.js?v=1.0"></script>
 <!-- AdminLazy dashboard demo (This is only for demo purposes) -->
