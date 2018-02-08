@@ -1,5 +1,6 @@
 ﻿/**
- *AdminLazy  indexTab  js
+ * AdminLazy  indexTab  js
+ * 首页中的标签栏相关逻辑
  */
 (function ($) {
     $.learuntab = {
